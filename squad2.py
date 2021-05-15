@@ -29,8 +29,8 @@ from the corresponding reading passage, or the question might be unanswerable.
 
 
 _URLS = {
-    "train":  "data/train-v2.0.json",
-    "dev": "data/dev-v2.0.json",
+    "train":  "khadija_data/d7.json",
+    "dev": "khadija_data/d10.json",
 }
 
 
@@ -84,8 +84,10 @@ class Squad(datasets.GeneratorBasedBuilder):
         downloaded_files = dl_manager.download_and_extract(_URLS)
 
         return [
-            datasets.SplitGenerator(name=datasets.Split.TRAIN, gen_kwargs={"filepath": downloaded_files["train"]}),
-            datasets.SplitGenerator(name=datasets.Split.VALIDATION, gen_kwargs={"filepath": downloaded_files["dev"]}),
+            datasets.SplitGenerator(name=datasets.Split.TRAIN, gen_kwargs={
+                                    "filepath": downloaded_files["train"]}),
+            datasets.SplitGenerator(name=datasets.Split.VALIDATION, gen_kwargs={
+                                    "filepath": downloaded_files["dev"]}),
         ]
 
     def _generate_examples(self, filepath):
@@ -101,8 +103,10 @@ class Squad(datasets.GeneratorBasedBuilder):
                         question = qa["question"].strip()
                         id_ = qa["id"]
 
-                        answer_starts = [answer["answer_start"] for answer in qa["answers"]]
-                        answers = [answer["text"].strip() for answer in qa["answers"]]
+                        answer_starts = [answer["answer_start"]
+                                         for answer in qa["answers"]]
+                        answers = [answer["text"].strip()
+                                   for answer in qa["answers"]]
 
                         # Features currently used are "context", "question", and "answers".
                         # Others are extracted here for the ease of future expansions.
