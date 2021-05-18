@@ -231,7 +231,7 @@ def main():
     if data_args.dataset_name is not None:
         # Downloading and loading a dataset from the hub.
         datasets = load_dataset('squad2.py', data_files={
-                                'train': 'data/train-v2.0.json', 'dev': 'data/dev-v2.0.json'})
+                                'train': 'khadija_data/train.json', 'dev': 'khadija_data/dev.json'})
     else:
         data_files = {}
         if data_args.train_file is not None:
@@ -366,8 +366,8 @@ def main():
                         token_start_index += 1
                     tokenized_examples["start_positions"].append(
                         token_start_index - 1)
-                    while offsets[token_end_index][1] >= end_char:
-                        token_end_index -= 1
+                    # while offsets[token_end_index][1] >= end_char:
+                    #     token_end_index -= 1
                     tokenized_examples["end_positions"].append(
                         token_end_index + 1)
 
