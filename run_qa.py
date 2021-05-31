@@ -115,7 +115,6 @@ class DataTrainingArguments:
             "than this will be truncated, sequences shorter will be padded."
         },
     )
- 
     pad_to_max_length: bool = field(
         default=True,
         metadata={
