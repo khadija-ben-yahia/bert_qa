@@ -115,10 +115,7 @@ class DataTrainingArguments:
             "than this will be truncated, sequences shorter will be padded."
         },
     )
-    vocab_size: int = filed(
-       default=30522,
-       metadata={"help":"Vocabulary size of the BERT model. Defines the number of different tokens that can be represented by".},
-    ) 
+    vocab_size: int = 30522, 
     pad_to_max_length: bool = field(
         default=True,
         metadata={
