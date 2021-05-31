@@ -115,7 +115,7 @@ class DataTrainingArguments:
             "than this will be truncated, sequences shorter will be padded."
         },
     )
-    vocab_size: int = 30522, 
+ 
     pad_to_max_length: bool = field(
         default=True,
         metadata={
