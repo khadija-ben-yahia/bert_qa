@@ -557,15 +557,15 @@ def main():
 batch_size = 8
 
 train_dataloader = DataLoader(
-            khadija_data\train-v2.0,  # The training samples.
-            sampler = RandomSampler(khadija_data\train-v2.0), # Select batches randomly
+             datasets["train"],  # The training samples.
+            sampler = RandomSampler(datasets["train"]), # Select batches randomly
             batch_size = batch_size # Trains with this batch size.
         )
 
 # For validation the order doesn't matter, so we'll just read them sequentially.
 validation_dataloader = DataLoader(
-             khadija_data\dev-v2.0, # The validation samples.
-            sampler = SequentialSampler( khadija_data\dev-v2.0), # Pull out batches sequentially.
+              datasets["dev"], # The validation samples.
+            sampler = SequentialSampler( datasets["dev"]), # Pull out batches sequentially.
             batch_size = batch_size # Evaluate with this batch size.
         )
     
