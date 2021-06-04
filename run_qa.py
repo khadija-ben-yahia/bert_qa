@@ -17,7 +17,7 @@
 Fine-tuning the library models for question answering.
 """
 # You can also adapt this script on your own question answering task. Pointers for this are left as comments.
-
+from datasets import load_dataset
 import logging
 import os
 import sys
@@ -557,15 +557,15 @@ def main():
 batch_size = 8
 
 train_dataloader = DataLoader(
-             datasets["train"],  # The training samples.
-            sampler = RandomSampler(datasets["train"]), # Select batches randomly
+             khadija_data/train.json,  # The training samples.
+            sampler = RandomSampler(khadija_data/train.json), # Select batches randomly
             batch_size = batch_size # Trains with this batch size.
         )
 
 # For validation the order doesn't matter, so we'll just read them sequentially.
 validation_dataloader = DataLoader(
-              datasets["dev"], # The validation samples.
-            sampler = SequentialSampler( datasets["dev"]), # Pull out batches sequentially.
+              khadija_data/dev.json, # The validation samples.
+            sampler = SequentialSampler(khadija_data/dev.json), # Pull out batches sequentially.
             batch_size = batch_size # Evaluate with this batch size.
         )
     
