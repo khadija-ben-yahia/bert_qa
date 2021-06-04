@@ -557,15 +557,15 @@ def main():
 batch_size = 8
 
 train_dataloader = DataLoader(
-             train_file,  # The training samples.
-            sampler = RandomSampler(train_file), # Select batches randomly
+              train_dataset,  # The training samples.
+            sampler = RandomSampler(train_dataset), # Select batches randomly
             batch_size = batch_size # Trains with this batch size.
         )
 
 # For validation the order doesn't matter, so we'll just read them sequentially.
 validation_dataloader = DataLoader(
-             dev_file, # The validation samples.
-            sampler = SequentialSampler(dev_file), # Pull out batches sequentially.
+              train_dataset, # The validation samples.
+            sampler = SequentialSampler(train_dataset), # Pull out batches sequentially.
             batch_size = batch_size # Evaluate with this batch size.
         )
     
