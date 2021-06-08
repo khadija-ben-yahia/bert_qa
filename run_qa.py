@@ -149,6 +149,7 @@ class DataTrainingArguments:
         metadata={
             "help": "The total number of n-best predictions to generate when looking for an answer."},
     )
+    max_query_length: int= 64
     max_answer_length: int = field(
         default=100,
         metadata={
