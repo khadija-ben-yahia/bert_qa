@@ -129,7 +129,7 @@ class DataTrainingArguments:
         },
     )
     version_2_with_negative: bool = field(
-        default=True, metadata={"help": "If true, some of the examples do not have an answer."}
+        default=False, metadata={"help": "If true, some of the examples do not have an answer."}
     )
     null_score_diff_threshold: float = field(
         default=0.0,
@@ -275,17 +275,7 @@ def main():
         revision=model_args.model_revision,
         use_auth_token=True if model_args.use_auth_token else None,
     )
-    
-    
-    
-
-
-    
-    
-    
    
-    
-    
     
     
 
