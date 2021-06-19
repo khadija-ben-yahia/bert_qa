@@ -129,7 +129,7 @@ class DataTrainingArguments:
         },
     )
     version_2_with_negative: bool = field(
-        default=False, metadata={"help": "If true, some of the examples do not have an answer."}
+        default=True, metadata={"help": "If true, some of the examples do not have an answer."}
     )
     null_score_diff_threshold: float = field(
         default=0.0,
